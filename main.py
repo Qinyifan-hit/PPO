@@ -132,10 +132,10 @@ def main():
                     traj_len = 0
 
                 if total_steps % opt.eval_interval == 0 or total_steps == 1:
-                    score = eval_func(env_eval, model, env_seed + 1, 3)
+                    score = eval_func(env_eval, model, opt.seed, 3)
                     if opt.write:
                         writer.add_scalar('ep_r', score, global_step=total_steps)
-                    print('EnvName:', bName, 'seed:', env_seed + 1,
+                    print('EnvName:', bName, 'seed:', opt.seed,
                           'steps: {}k'.format(int(total_steps / 1000)), 'score:', score)
 
                 if total_steps % opt.save_interval == 0:
