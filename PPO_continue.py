@@ -60,7 +60,7 @@ class PPO_Agent(object):
         for t in range(self.K_epochs):
             Ind = np.arange(traj_len)
             np.random.shuffle(Ind)
-            s, a, r, s_, prob_old, Adv = s[Ind].clone(), a[Ind].clone(), r[Ind].clone(), s_[Ind].clone(), prob_old[
+            s, a, r, V_target, prob_old, Adv = s[Ind].clone(), a[Ind].clone(), r[Ind].clone(), V_target[Ind].clone(), prob_old[
                 Ind].clone(), Adv[Ind].clone()
             for j in range(t_turns):
                 Ind_batch = slice(j * self.batch_size, min(traj_len, (j + 1) * self.batch_size))
